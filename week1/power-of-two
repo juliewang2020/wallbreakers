@@ -4,7 +4,7 @@ class Solution(object):
         :type n: int
         :rtype: bool
         """
-        n = n + 0.00
+        n = float(n)
         while n  > 0:
             if n == 2 or n == 1:
                 return True
