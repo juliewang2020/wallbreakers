@@ -1,0 +1,18 @@
+class Solution(object):
+    def selfDividingNumbers(self, left, right):
+        """
+        :type left: int
+        :type right: int
+        :rtype: List[int]
+        """
+        selfdiv= []
+        for i in range(left, right+1): 
+            selfdiv.append(i)
+        
+        for i in range(left, right+1):
+            ilist = list(str(i))
+            for num in ilist:
+                if int(num) == 0 or i%int(num) != 0:
+                    selfdiv.remove(i)
+                    break
+        return selfdiv
