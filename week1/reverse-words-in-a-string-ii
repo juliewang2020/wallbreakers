@@ -1,0 +1,20 @@
+class Solution(object):
+    def reverseWords(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        slist = []
+        slist = s.split()
+        ans = "" #return this
+        backwards = ""
+        ltemp = []
+        for word in slist: 
+            for letter in reversed(word):     #can i do forward and then append to beginning?
+                ltemp.append(letter)    
+            backwards = "".join(ltemp)
+            ans = ans + " " + backwards 
+            ltemp= []
+        ans = ans[1:len(ans)]
+        return ans
+                
