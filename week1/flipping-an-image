@@ -1,0 +1,21 @@
+class Solution(object):
+    def flipAndInvertImage(self, A):
+        """
+        :type A: List[List[int]]
+        :rtype: List[List[int]]
+        """
+        import numpy
+        flip = numpy.zeros((len(A[0]), len(A)), dtype = int)           
+        flip = flip.astype(int)
+        
+        i = 0
+        j = 0
+        
+        
+        for i in range(0, len(A)):
+            for j in range(0, len(A[0])):
+                if A[i][j] == 1:
+                    flip[i][len(A[0])-1-j] = 0
+                else:
+                    flip[i][len(A[0])-1-j] = 1
+        return flip
