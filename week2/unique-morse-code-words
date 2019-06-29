@@ -1,0 +1,19 @@
+class Solution(object):
+    def uniqueMorseRepresentations(self, words):
+        """
+        :type words: List[str]
+        :rtype: int
+        """
+        morse = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."] 
+        alpha = list("abcdefghijklmnopqrstuvwxyz")
+        i = 0
+        k = 0
+        temp = ""
+        unique = set() 
+        for i in range(0, len(words)):
+            for k in range(0, len(words[i])):
+                loc = alpha.index(words[i][k])  #location of matching morse code
+                temp = temp + morse[loc]  #make the word
+            unique.add(temp)  #add transformed word to set
+            temp = ""  #reset temp
+        return len(unique) #the number of unique transformations
