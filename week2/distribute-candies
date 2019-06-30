@@ -1,0 +1,11 @@
+class Solution(object):
+    def distributeCandies(self, candies):
+        """
+        :type candies: List[int]
+        :rtype: int
+        """
+        i = 0 
+        kinds = set()
+        for i in range(0, len(candies)):
+            kinds.add(candies[i])
+        return min(len(kinds), len(candies)/2)
