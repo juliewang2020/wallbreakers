@@ -1,0 +1,21 @@
+class Solution(object):
+    def isHappy(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        n = str(n)
+        num = list(n)
+        i = 0
+        check = 0
+        tried = set()
+        while check != 1:
+            check = 0
+            for i in range(0, len(num)):
+                check += int(num[i])**2
+                digit = int(num[i])
+            if check in tried:
+                return False
+            tried.add(check)
+            num = list(str(check))
+        return True 
