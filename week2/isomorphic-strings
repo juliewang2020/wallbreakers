@@ -1,0 +1,19 @@
+class Solution(object):
+    def isIsomorphic(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        checkpair = {}
+        pairs = zip(s,t)
+        for s, t in pairs:
+            if s not in checkpair:
+                checkpair[s] = t
+            else:
+                if checkpair[s] != t:
+                    return False
+        if len(set(checkpair.values())) != len(checkpair.values()):
+            return False
+        else:
+            return True
