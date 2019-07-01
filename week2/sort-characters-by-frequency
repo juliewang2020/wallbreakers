@@ -1,0 +1,21 @@
+class Solution(object):
+    def frequencySort(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        from collections import Counter
+        scount = Counter(s)
+        counts = []
+        for k, v in scount.items():
+            counts.append(v)
+        counts.sort(reverse = True) 
+        
+        ans = ""
+        i = 0
+        for i in range(0, len(counts)):
+            for k, v in scount.items():
+                if v == counts[i]:
+                    ans = ans + k*v
+                    del scount[k]
+        return ans    
