@@ -1,0 +1,21 @@
+class Solution(object):
+    def firstUniqChar(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        import collections
+        scount = collections.Counter(s)
+        
+        i = 0
+        possible = []
+        for i in range(0, len(s)):
+            for key,value in scount.items():
+                if key == s[i] and value == 1:
+                    possible.append(s[i])
+        if len(possible) < 1:
+            return -1
+        for i in range(0, len(s)):
+            if s[i] == possible[0]:
+                return i
+                    
