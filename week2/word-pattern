@@ -1,0 +1,25 @@
+class Solution(object):
+    def wordPattern(self, pattern, str):
+        """
+        :type pattern: str
+        :type str: str
+        :rtype: bool
+        """
+        checkpairs = {}
+        pattern= list(pattern)
+        str = str.split()
+        pairs = zip(pattern, str)
+        if len(pattern) != len(str):
+            return False
+        for p, s in pairs:
+            print(p)
+            print(s)
+            if p not in checkpairs:
+                checkpairs[p] = s
+            else:
+                if checkpairs[p] != s:
+                    return False
+        if len(set(checkpairs.values())) != len(checkpairs.values()):
+            return False
+        return True
+        
