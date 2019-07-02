@@ -1,0 +1,22 @@
+class Solution(object):
+    def findErrorNums(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        import collections
+        numscount = collections.Counter(nums)
+        
+        mistake = 0
+        for k, v in numscount.items():
+            if v == 2:
+                mistake = k
+                
+        havenum = set(nums)
+        shouldhave = set()
+        for i in range(1, len(nums)+1):
+            shouldhave.add(i)
+        missing = shouldhave.difference(havenum)
+        return [mistake, missing.pop()]
+        
+            
