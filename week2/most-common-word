@@ -14,12 +14,11 @@ class Solution(object):
                     nopunc+= " "
             if paragraph[i] not in "!?',;.":
                 nopunc+= paragraph[i].lower()
-        print(nopunc)        
+               
         words = nopunc.split(" ")
-        print(words)
         wordcount = collections.Counter(words)      
         wordcount = wordcount.most_common(len(wordcount))
-        print(wordcount)
+       
         for k, v in wordcount:
             if k not in banned and k != "":
                 return k
