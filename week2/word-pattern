@@ -12,8 +12,6 @@ class Solution(object):
         if len(pattern) != len(str):
             return False
         for p, s in pairs:
-            print(p)
-            print(s)
             if p not in checkpairs:
                 checkpairs[p] = s
             else:
