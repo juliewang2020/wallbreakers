@@ -1,0 +1,24 @@
+class Solution(object):
+    def isSubsequence(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        s = list(s)
+        t = list(t)
+        check = set(s)
+         
+        i = 0
+        for i in range(0, len(t)):
+            if t[i] not in check:
+                t.remove(t[i])
+        
+        if len(t) != len(s):
+            return False
+         
+        i = 0
+        while i < len (s):
+            if t[i] != s[i]:
+                return False
+        return True
