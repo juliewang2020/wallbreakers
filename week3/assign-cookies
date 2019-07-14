@@ -1,0 +1,21 @@
+class Solution(object):
+    def findContentChildren(self, g, s):
+        """
+        :type g: List[int]
+        :type s: List[int]
+        :rtype: int
+        """
+        
+        g.sort()
+        s.sort()
+        
+        i = 0 #happy children number
+        j = 0 #counter for cookie size
+        
+        while j < len(s) and i < len(g):
+            if s[j] >= g[i]:
+                i += 1
+            j += 1
+            
+        return i
+        
